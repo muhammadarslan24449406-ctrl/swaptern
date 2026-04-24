@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat Test</title>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+
+<body>
+    <h2>Chat Test</h2>
+    <input id="msg" placeholder="Message likho" />
+    <button onclick="sendMsg()">Send</button>
+    <div id="messages"></div>
+
+    <script>
+        const socket = io('http://localhost:5000')
+
+        // Arslan ke ID se join karo
+        const myId = '69eb84c1cb9161305d9b47ca'
+        const otherId = '69ebb8de86ef8ac1b19bc296'
+
+        socket.on('connect', () => {
+            console.log('Connected!')
+            socket.emit('join', myId)
+        })
+
+        socket.on('receiveMessage', (data) => {
+            const div = document.getElementById('messages')
+            div.innerHTML += `<p><b>${data.sender}:</b> ${data.message}</p>`
+        })
+
+        function sendMsg() {
+            const msg = document.getElementById('msg').value
+            socket.emit('sendMessage', {
+                senderId: myId,
+                receiverId: otherId,
+                message: msg
+            })
+            document.getElementById('msg').value = ''
+        }
+    </script>
+</body>
+
+</html>
