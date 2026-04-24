@@ -16,6 +16,8 @@ const profileRoutes = require('./routes/profile')
 app.use('/api/profile', profileRoutes)
 const userRoutes = require('./routes/users')
 app.use('/api/users', userRoutes)
+const creditRoutes = require('./routes/credits')
+app.use('/api/credits', creditRoutes)
 app.get('/', (req, res) => {
     res.json({ message: 'Server chal raha hai!' })
 })
