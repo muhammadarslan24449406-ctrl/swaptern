@@ -22,12 +22,14 @@ const authRoutes = require('./routes/auth')
 const profileRoutes = require('./routes/profile')
 const userRoutes = require('./routes/users')
 const creditRoutes = require('./routes/credits')
+const sessionRoutes = require('./routes/sessions')
 const chatRoutes = require('./routes/chat')
 
 app.use('/api/auth', authRoutes)
 app.use('/api/profile', profileRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/credits', creditRoutes)
+app.use('/api/sessions', sessionRoutes)
 app.use('/api/chat', chatRoutes)
 
 app.get('/', (req, res) => {
