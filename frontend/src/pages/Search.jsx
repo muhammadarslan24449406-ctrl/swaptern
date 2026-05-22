@@ -16,7 +16,7 @@ function Search() {
     const searchUsers = async (skillQuery = '') => {
         setLoading(true)
         try {
-            const res = await axios.get(`http://localhost:5000/api/users/search?skill=${skillQuery}`, {
+            const res = await axios.get(`https://swaptern-production.up.railway.app/api/users/search?skill=${skillQuery}`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setUsers(res.data)

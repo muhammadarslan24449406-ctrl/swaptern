@@ -17,7 +17,7 @@ function Profile() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/profile/me', {
+                const res = await axios.get('https://swaptern-production.up.railway.app/api/profile/me', {
                     headers: { Authorization: `Bearer ${token}` }
                 })
                 setName(res.data.name)
@@ -51,7 +51,7 @@ function Profile() {
 
     const updateProfile = async () => {
         try {
-            await axios.put('http://localhost:5000/api/profile/update', {
+            await axios.put('https://swaptern-production.up.railway.app/api/profile/update', {
                 name, bio, skillsToTeach, skillsToLearn
             }, {
                 headers: { Authorization: `Bearer ${token}` }

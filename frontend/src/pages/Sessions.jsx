@@ -18,7 +18,7 @@ function Sessions() {
 
     const fetchSessions = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/sessions/my', {
+            const res = await axios.get('https://swaptern-production.up.railway.app/api/sessions/my', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setSessions(res.data)
@@ -27,7 +27,7 @@ function Sessions() {
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/users/search', {
+            const res = await axios.get('https://swaptern-production.up.railway.app/api/users/search', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setUsers(res.data)
@@ -36,7 +36,7 @@ function Sessions() {
 
     const bookSession = async () => {
         try {
-            await axios.post('http://localhost:5000/api/sessions/book', form, {
+            await axios.post('https://swaptern-production.up.railway.app/api/sessions/book', form, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setShowModal(false)
@@ -46,7 +46,7 @@ function Sessions() {
 
     const completeSession = async (id) => {
         try {
-            await axios.put(`http://localhost:5000/api/sessions/complete/${id}`, {}, {
+            await axios.put(`https://swaptern-production.up.railway.app/api/sessions/complete/${id}`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             fetchSessions()

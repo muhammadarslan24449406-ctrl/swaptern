@@ -17,7 +17,7 @@ function Credits() {
 
     const fetchBalance = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/credits/balance', {
+            const res = await axios.get('https://swaptern-production.up.railway.app/api/credits/balance', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setBalance(res.data.credits)
@@ -26,7 +26,7 @@ function Credits() {
 
     const fetchSessions = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/sessions/my', {
+            const res = await axios.get('https://swaptern-production.up.railway.app/api/sessions/my', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setSessions(res.data)

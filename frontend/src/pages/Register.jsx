@@ -16,7 +16,7 @@ function Register() {
             return
         }
         try {
-            await axios.post('http://localhost:5000/api/auth/register', { name, email, password })
+            await axios.post('https://swaptern-production.up.railway.app/api/auth/register', { name, email, password })
             navigate('/login')
         } catch (err) {
             setError('Register nahi hua, dobara try karo!')
